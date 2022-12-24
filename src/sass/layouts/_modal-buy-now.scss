@@ -1,0 +1,247 @@
+// __Backdrop__
+
+.backdrop {
+  overflow: scroll;
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(33, 33, 33, 0.5);
+  transition: opacity 200ms linear, visibility 200ms linear;
+
+  &.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.is-hidden .modal {
+    transform: translate(-50%, -50%) scaleY(0);
+  }
+}
+
+// __Modal__
+
+.modal-buy {
+  width: 280px;
+  // height: 100%;
+  padding: 28px 28px 29px;
+
+  background-color: $main-white;
+  border-radius: 10px;
+  border: 2px solid #f8d24e;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+
+  @include tablet {
+    width: 568px;
+    height: 644px;
+    padding: 32px 54px 0;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    margin: auto;
+    transform: translate(-50%, -50%) scaleY(1);
+    z-index: 2;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    border: transparent;
+
+    &:hover .modal-buy__icon,
+    &:focus .modal-buy__icon {
+      fill: #0a8817;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 84px;
+    margin-bottom: 40px;
+
+    @include tablet {
+      flex-wrap: nowrap;
+      gap: 32px;
+    }
+  }
+
+  &__item-1 {
+    @extend %buy-item;
+    border-color: #84a178;
+  }
+  &__item-2 {
+    @extend %buy-item;
+    border-color: transparent;
+    background-color: $secondary-yellow;
+  }
+  &__item-3 {
+    @extend %buy-item;
+    border-color: $main-brown;
+  }
+
+  &__circle-1 {
+    position: absolute;
+    top: 7px;
+    left: -2px;
+    transform: translateY(-50%);
+    @extend %buy-circle;
+    background: linear-gradient(
+        0deg,
+        rgba(156, 190, 143, 0.7),
+        rgba(156, 190, 143, 0.7)
+      ),
+      #d9d9d9;
+    box-shadow: 0px 5.26027px 19.726px rgba(10, 136, 23, 0.25);
+  }
+  &__circle-2 {
+    position: absolute;
+    top: 7px;
+    left: -2px;
+    transform: translateY(-50%);
+    @extend %buy-circle;
+    background: linear-gradient(
+        0deg,
+        rgba(248, 210, 78, 0.7),
+        rgba(248, 210, 78, 0.7)
+      ),
+      #d9d9d9;
+    box-shadow: 0px 5.26027px 19.726px rgba(153, 114, 23, 0.25);
+  }
+  &__circle-3 {
+    position: absolute;
+    top: 7px;
+    left: -2px;
+    transform: translateY(-50%);
+    @extend %buy-circle;
+    background: linear-gradient(
+        0deg,
+        rgba(213, 117, 63, 0.7),
+        rgba(213, 117, 63, 0.7)
+      ),
+      #d9d9d9;
+    box-shadow: 0px 5.26027px 19.726px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.modal-buy__img {
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+}
+
+.modal-buy-title {
+  margin-bottom: 83px;
+  font-family: 'Seymour One';
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  color: $main-black;
+
+  font-size: 16px;
+  line-height: calc(24 / 16);
+
+  @include tablet {
+    margin-bottom: 103px;
+
+    font-size: 20px;
+    line-height: calc(28 / 20);
+  }
+}
+
+// Form__________
+
+.form-buy-container {
+  display: flex;
+  justify-content: center;
+}
+.form-buy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 368px;
+
+  &__input {
+    width: 100%;
+    height: 42px;
+    padding-left: 16px;
+
+    border: 1px solid #84a178;
+    border-radius: 10px;
+    background: rgba(248, 210, 78, 0.1);
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1, 4%;
+      color: $main-black;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 121px;
+    height: 42px;
+
+    background-color: $main-yellow;
+    border-radius: 10px;
+    border: transparent;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: calc(17 / 14);
+    color: $main-black;
+    &:hover,
+    &:focus {
+      background-color: #0a8817;
+      color: $main-white;
+    }
+  }
+}
+
+.buy-btn-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.coment-buy__input {
+  width: 100%;
+  height: 84px;
+  padding-top: 11px;
+  padding-left: 16px;
+  border: 1px solid #84a178;
+  border-radius: 10px;
+  background: rgba(248, 210, 78, 0.1);
+
+  &::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1, 4%;
+    color: $main-black;
+  }
+}
+
+.coment-buy {
+  margin-bottom: 16px;
+}
+
+.is-scroll {
+  overflow: hidden;
+}
