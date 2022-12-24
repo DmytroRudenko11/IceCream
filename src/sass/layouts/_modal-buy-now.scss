@@ -1,17 +1,15 @@
 // __Backdrop__
 
 .backdrop {
-  overflow: scroll;
   position: fixed;
   z-index: 101;
   top: 0;
   left: 0;
-  margin: auto;
   width: 100%;
   height: 100%;
 
-  background-color: rgba(33, 33, 33, 0.5);
-  transition: opacity 200ms linear, visibility 200ms linear;
+  background-color: rgba(227, 252, 5, 0.226);
+  transition: opacity 250ms linear, visibility 250ms linear;
 
   &.is-hidden {
     visibility: hidden;
@@ -241,5 +239,3 @@
 .coment-buy {
   margin-bottom: 16px;
 }
-
-
