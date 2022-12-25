@@ -1,9 +1,10 @@
-.scroll-up {
+.scrollUp {
   position: fixed;
   top: 50px;
   right: 50px;
   display: block;
   z-index: 1;
+  opacity: 1;
 
   width: 50px;
   height: 50px;
@@ -15,4 +16,8 @@
   background-size: 30px;
   background-repeat: no-repeat;
   background-position: center;
+
+  &.hide {
+    opacity: 0;
+  }
 }
